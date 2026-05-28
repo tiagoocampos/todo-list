@@ -1,11 +1,16 @@
-class Task{
-    constructor(title, description){
 
-        if(!title || !description){
-            throw new Error('O título e a descrição são obrigatórios');
+
+
+
+
+class Task{
+    constructor(id, description){
+      
+        if(!id || !description){
+            throw new Error('O id e a descrição são obrigatórios');
         }
 
-        this.title = title;
+        this.id = id;
         this.description = description;
 
         

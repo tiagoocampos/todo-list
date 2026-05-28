@@ -1,23 +1,28 @@
 import db from '../database/db.js';
 import Task from '../models/Task.js';
+import { nanoid } from 'nanoid';
 
 class TaskController{
     static createTask(req, res){
 
-        
+       
 
         try {
 
             
-            const { title, description } = req.body;
+            const { description } = req.body;
 
-             if(!title || !description){
-                console.log('O título e a descrição são obrigatórios');
-                return res.status(400).json({ error: "O título e a descrição são obrigatórios" });
-
-        }
             
-            const task = new Task(title, description);
+
+             if(!description){
+                console.log('A descrição é obrigatória');
+                return res.status(400).json({ error: "O id e a descrição são obrigatórios" });
+
+            }
+
+            const id = nanoid(4)
+            
+            const task = new Task(id, description);
 
             
             db.push(task);
