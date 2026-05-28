@@ -12,14 +12,6 @@ class TaskController{
             
             const { description } = req.body;
 
-            
-
-             if(!description){
-                console.log('A descrição é obrigatória');
-                return res.status(400).json({ error: "O id e a descrição são obrigatórios" });
-
-            }
-
             const id = nanoid(4)
             
             const task = new Task(id, description);
